@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>cart</title>
+</head>
+
+{% include 'header.html' %}
+  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+		      <a class="navbar-brand" href="{% url 'customerprofile'%}"><span class=" "></span> Online Book Store</a>
+		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		        <span class="oi oi-menu"></span> Menu
+		      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	           <li class="nav-item"><a href="/customer_details_display/" class="nav-link">My Details</a></li>
+	          <li class="nav-item"><a href="/customer_change_password/" class="nav-link">Change Password</a></li>
+	          <li class="nav-item active"><a href="/customer_view_book/" class="nav-link">Book Stores</a></li>
+				                <li class="nav-item"><a href="/customer_view_order/" class="nav-link">My Orders</a></li>
+	          <li class="nav-item"><a href="/customer_logout/" class="nav-link">Logout</a></li>
+
+
+	        </ul>
+	      </div>
+		  </div>
+	  </nav>
+<body onload="getPrice();" >
+<img src="{% static 'images/Book6.jpg' %}" height="400px" width="100%" />
+<section class="ftco-section contact-section">
+      <div class="container mt-5">
+        <div class="row block-9">
+			<div class="col-md-6 ftco-animate">
+            <form action="" class="contact-form" method="post">
+				{% csrf_token %}
+
+				<div class="form-group">
+               <label> Merchant Email :</label>
+	                <div class="form-group">
+	                  <input type="email" class="form-control" name="email"  value="{{book.merchant.email}}" placeholder=" name" readonly>
+	                </div>
+                </div>
+
+               <div class="form-group">
+               <label> BookStore :</label>
+	                <div class="form-group">
+	                  <input type="text" class="form-control" name="store"  value="{{book.merchant.store}}" placeholder=" name" readonly>
+	                </div>
+                </div>
+
+
+				 <div class="form-group">
+               <label>Customer Id</label>
+	                <div class="form-group">
+	                  <input type="text" class="form-control" name="customer" value="{{customer}}" placeholder="name" readonly>
+	                </div>
+                </div>
+
+
+               <div class="form-group">
+               <label>Book Id:</label>
+	                <div class="form-group">
+	                  <input type="text" class="form-control" name="book" value="{{book.id}}" placeholder=" name" readonly >
+	                </div>
+                </div>
+
+
+
+    		<div class="form-group">
+                  <label>Enter Delivery Address</label>
+                <textarea name="add" id=""  cols="30" rows="4" class="form-control"  placeholder="Address"></textarea>
+              </div>
+
+              <div class="form-group">
+				  <label>Add to cart</label>
+              <input type="button" onclick="decrementValue()" value="-" />
+             <input type="text" name="cart" value="1" maxlength="2" max="10" size="1" id="number" />
+               <input type="button" onclick="incrementValue();" value="+"/>
+                </div>
+
+
+
+               <div class="form-group">
+               <label>Cost:</label>
+	                <div class="form-group">
+	                  <input type="text" class="form-control" id="cost" value="{{book.cost}}" name="cost" readonly>
+	                </div>
+                </div>
+
+                 <div class="form-group">
+               <label>Discount:</label>
+	                <div class="form-group">
+	                  <input type="text" class="form-control" name="discount"  id="discount" value="{{book.discount}}" readonly>
+	                </div>
+                </div>
+
+                 <div class="form-group">
+               <label>Final Cost:</label>
+	                <div class="form-group">
+	                  <input type="text" class="form-control" id="total" name="finalcost" placeholder="Total cost"  readonly>
+	                </div>
+                </div>
+
+              <div class="form-group">
+                <input type="submit" value="BookNow" class="btn btn-primary py-3 px-5">{{msg}}
+              </div>
+			</form></div></div></div></section>
+</body>
+</html>
+{% include 'footer.html' %}
+
+<script>
+	 function  getPrice()
+	 {
+		var numVal1 = Number(document.getElementById("cost").value);
+		var numVal2 = Number(document.getElementById("discount").value);
+		var totalValue = numVal1 - numVal2
+		document.getElementById("total").value = totalValue;
+
+	}
+
+function incrementValue()
+{
+    var value = parseInt(document.getElementById('number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    if(value<10){
+        value++;
+            document.getElementById('number').value = value;
+			var cost=parseInt(document.getElementById('cost').value);
+			var discount=parseInt(document.getElementById('discount').value);
+			var totalcost=cost*value-discount*value;
+			document.getElementById("total").value=totalcost;
+
+    }
+}
+function decrementValue()
+{
+    var value = parseInt(document.getElementById('number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    if(value>1){
+        value--;
+            document.getElementById('number').value = value;
+            var cost=parseInt(document.getElementById('cost').value);
+			var discount=parseInt(document.getElementById('discount').value);
+			var totalcost=cost*value-discount;
+			document.getElementById("total").value=totalcost;
+
+    }
+
+}
+</script>

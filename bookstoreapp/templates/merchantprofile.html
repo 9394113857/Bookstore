@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+       {% include 'header.html' %}
+
+    <title>merchant</title>
+</head>
+      <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+		      <a class="navbar-brand" href="{% url 'merchantprofile'%}"><span class=" "></span> Online Book Store</a>
+		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		        <span class="oi oi-menu"></span> Menu
+		      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="/merchant_details_display/" class="nav-link">BookStore</a></li>
+				<li class="nav-item "><a href="/merchant_view_feedback/" class="nav-link">Feedbacks</a></li>
+                <li class="nav-item"><a href="/book_order/" class="nav-link">Orders</a></li>
+				<li class="nav-item"><a href="/merchant_change_password/" class="nav-link">Change Password</a></li>
+                <li class="nav-item"><a href="/merchant_logout/" class="nav-link">Logout</a></li>
+
+	        </ul>
+	      </div>
+        </div>
+	  </nav>
+
+<img src="{% static 'images/mm.jpg' %}" width="100%" />
+</html>
+
+{% include 'footer.html' %}

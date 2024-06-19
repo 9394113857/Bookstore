@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>feedback</title>
+</head>
+<body>
+
+{% include 'header.html' %}
+  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+		      <a class="navbar-brand" href="{%  url 'customerprofile' %}"><span class=" "></span> Online Book Store</a>
+		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		        <span class="oi oi-menu"></span> Menu
+		      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	           <li class="nav-item"><a href="/customer_details_display/" class="nav-link">My Details</a></li>
+	          <li class="nav-item"><a href="/customer_change_password/" class="nav-link">Change Password</a></li>
+                	          <li class="nav-item"><a href="/customer_view_book/" class="nav-link">BookStore</a></li>
+                				<li class="nav-item"><a href="/customer_view_order/" class="nav-link">My Orders</a></li>
+	          <li class="nav-item"><a href="/customer_logout/" class="nav-link">Logout</a></li>
+
+
+	        </ul>
+	      </div>
+		  </div>
+	  </nav>
+
+
+<img src="{% static 'images/book1.jpg' %}" width="100%" height="300px" />
+
+
+<section class="ftco-section contact-section">
+      <div class="container mt-5">
+        <div class="row block-9">
+            <div class="col-md-6 ftco-animate">
+            <form action="" class="contact-form" method="post">
+                <h2>Feedback</h2>
+				{% csrf_token %}
+	                <div class="form-group">
+                        <label>BookStore Id</label>
+	                  <input type="text" class="form-control" name="merchant" value="{{merchant}}" placeholder=" Name" readonly>
+	                </div>
+
+                 <div class="form-group">
+                        <label>Customer Id</label>
+	                  <input type="text" class="form-control" name="customer" value="{{customer}}" placeholder="Name" readonly>
+	                </div>
+
+
+                 <div class="form-group">
+                        <label>Comment</label>
+	                  <input type="text" class="form-control" name="text"  placeholder=" comment">
+	                </div>
+
+
+                <div class="form-group">
+                <label>:Rating</label>
+                <select id="rating" name="rating" class="selector form-control" required>
+                    <option value="1" selected="selected">1★</option>
+                    <option value="2">2★</option>
+                    <option value="3">3★</option>
+                    <option value="4">4★</option>
+                    <option value="5">5★</option>
+                </select><br>
+            </div>
+                      <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary py-3 px-5">
+              </div>
+                {{msg}}
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</body>
+</html>
+
+{% include 'footer.html' %}

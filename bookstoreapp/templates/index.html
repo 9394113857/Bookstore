@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BookStore</title>
+	  {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   {% include 'header.html' %}
+  <body>
+  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+		      <a class="navbar-brand" href="/"><span class="flaticon-book-1 mr-1"></span> Online Book Store</a>
+		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		        <span class="oi oi-menu"></span> Menu
+		      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+<!--	          <li class="nav-item"><a href="/menu/" class="nav-link">Books</a></li>-->
+	          <li class="nav-item"><a href="/about/" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+				<li class="nav-item "><a href="/merchant/" class="nav-link">Merchant</a></li>
+	          <li class="nav-item"><a href="/customer/" class="nav-link">Customer</a></li>
+				<li class="nav-item"><a href="/admin_login/" class="nav-link">Admin</a></li>
+	        </ul>
+	      </div>
+		  </div>
+	  </nav>
+    <!-- END nav -->
+
+    <section class="home-slider owl-carousel img" style="background-image: url({% static 'images/book6.jpg' %});">
+      <div class="slider-item">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-6 col-sm-12 ftco-animate">
+            	<span class="subheading">StudyBook</span>
+              <h1 class="mb-4">BeforeSleep</h1>
+              <p class="mb-4 mb-md-5">“A room without books is like a body without a soul.”</p>
+              <p><a href="{% url 'customer' %}" class="btn btn-primary p-3 px-xl-4 py-xl-3">ViewBooks</a> <a href="{% url 'menu' %}" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">BuyBook</a></p>
+            </div>
+            <div class="col-md-4 ftco-animate">
+            	<img src=" {%static 'images/books.png' %}" class="img-fluid" alt="" height="200px" width="200px">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-6 col-sm-12 order-md-last ftco-animate">
+            	<span class="subheading">BooksGives</span>
+              <h1 class="mb-4">knowledge</h1>
+              <p class="mb-4 mb-md-5">“Take a good book to bed with you—books do not snore.”</p>
+              <p><a href="{% url 'customer' %}" class="btn btn-primary p-3 px-xl-4 py-xl-3">ViewBooks</a> <a href="{% url 'menu' %}" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">BuyBook</a></p>
+            </div>
+            <div class="col-md-4 ftco-animate">
+            	<img src="{% static 'images/book-stack.png' %}" class="img-fluid" alt="">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item" style="background-image: url({% static 'images/book5.jpg' %});">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-7 col-sm-12 text-center ftco-animate">
+            	<span class="subheading">Welcome</span>
+              <h1 class="mb-4">Books are a uniquely portable magic</h1>
+              <p class="mb-4 mb-md-5">When I have a little money, I buy books; and if I have any left, I buy food and clothes;</p>
+              <p><a href="{% url 'customer' %}" class="btn btn-primary p-3 px-xl-4 py-xl-3">ViewBooks</a> <a href="{% url 'menu' %}" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">BuyBook</a></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-about d-md-flex">
+    	<div class="one-half img" style="background-image: url({% static 'images/book4.jpg' %});"></div>
+    	<div class="one-half ftco-animate">
+        <div class="heading-section ftco-animate ">
+          <h2 class="mb-4">Welcome to <span class="">Book</span>Store</h2>
+        </div>
+        <div>
+<p>Bookstores sell books and book-adjacent items, of course. But they also may serve as editorial offices, publishing houses, classrooms, and lecture halls, not to mention cafés, play spaces, and reading rooms. Sites of collaboration and exchange, bookstores, like libraries, can help hold a community together.</p>  			</div>
+    	</div>
+    </section>
+
+  ]
+
+</body>
+
+
+
+
+		<section class="ftco-counter ftco-bg-dark img" id="section-counter" style="background-image: url({% static 'images/bg_2.jpg' %});" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+      <div class="container">
+        <div class="row justify-content-center">
+        	<div class="col-md-10">
+        		<div class="row">
+		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		              	<div class="icon"><span class="flaticon-medal"></span></div>
+		              	<strong class="number" data-number="100">0</strong>
+		              	<span>Branches</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		              	<div class="icon"><span class="flaticon-medal"></span></div>
+		              	<strong class="number" data-number="85">0</strong>
+		              	<span>Number of Awards</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		              	<div class="icon"><span class="flaticon-laugh"></span></div>
+		              	<strong class="number" data-number="10567">0</strong>
+		              	<span>Happy Customer</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		              	<div class="icon"><span class="flaticon-laugh"></span></div>
+		              	<strong class="number" data-number="900">0</strong>
+		              	<span>librarian</span>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+   {% include 'footer.html' %}

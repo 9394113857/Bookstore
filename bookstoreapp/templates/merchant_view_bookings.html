@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+</head>
+{% load static %}
+{% include 'header.html' %}
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+		      <a class="navbar-brand" href="{% url 'merchantprofile'%}"><span class=" "></span> Online Book Store</a>
+		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		        <span class="oi oi-menu"></span> Menu
+		      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="/merchant_details_display/" class="nav-link">BookStore</a></li>
+                <li class="nav-item "><a href="/merchant_view_feedback/" class="nav-link">Feedbacks</a></li>
+                <li class="nav-item"><a href="/book_order/" class="nav-link">Orders</a></li>
+	          <li class="nav-item"><a href="/merchant_change_password/" class="nav-link">Change Password</a></li>
+                <li class="nav-item"><a href="/merchant_logout/" class="nav-link">Logout</a></li>
+
+	        </ul>
+	      </div>
+        </div>
+	  </nav>
+<body>
+<img src="{% static 'images/book4.jpg' %}" height="200px" width="100%" />
+<br><br>
+<table border="1" cellpadding="10" cellspacing="0" style="color:#FFFFFF" width="100%">
+    <thead>
+    <tr>
+        <th>Customer</th>
+        <th>Book</th>
+        <th>Address</th>
+        <th>Quantity</th>
+        <th>Cost</th>
+        <th>Discount</th>
+        <th>Total Cost</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for x in orders %}
+    <tr>
+        <td>{{x.customer.email}}</td>
+        <td>{{x.book.bookname}}</td>
+        <td>{{x.add}}</td>
+        <td>{{x.cart}}</td>
+        <td>{{x.cost}}</td>
+        <td>{{x.discount}}</td>
+        <td>{{x.finalcost}}</td>
+         <td>
+             {% if x.status == 0 %}
+                <span>Pending</span>
+            {% elif x.status == 1 %}
+                <span class="red">Accepted</span>
+            {% elif x.status == 2 %}
+                <span class="black">Rejected</span>
+            {% elif x.status == 3 %}
+                <span class="yellow">Out For Delivery</span>
+             {% elif x.status == 4 %}
+             <span>Delivered</span>
+             {% elif x.status == 5 %}
+             <span>Cancelled</span>
+
+            {% else %}
+            {% endif %}
+         </td>
+         <td>
+             {% if x.status == 0 %}
+                <a href="/approve_slot/{{x.id}}">Accept</a> <br>
+                <a href="{% url 'reject_slot' id=x.id %}">Reject</a>
+             {% elif x.status == 1  %}
+             <a href="/delivered_slot/{{x.id}}" >Out For Delivery</a>
+             {% elif x.status == 3  %}
+             <a href="/delivery/{{x.id}}">Delivery</a>
+             {% else %}
+             {% endif %}
+         </td>
+        {% empty %}
+        No Bookings
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
+{% include 'footer.html' %}

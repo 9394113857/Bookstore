@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Merchants</title>
+</head>
+{% include 'header.html' %}
+  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+		      <a class="navbar-brand" href=""><span class=" "></span> Online Book Store</a>
+		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		        <span class="oi oi-menu"></span> Menu
+		      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	            <li class="nav-item"><a href="/admin_change_pwd/" class="nav-link">Change Password</a></li>
+				<li class="nav-item"><a href="/view_contact/" class="nav-link">View Contacts</a></li>
+				<li class="nav-item"><a href="/view_customer/" class="nav-link">View Customers</a></li>
+				<li class="nav-item"><a href="/view_merchant/" class="nav-link">View Merchants</a></li>
+                <li class="nav-item"><a href="/view_order/" class="nav-link">View Orders</a></li>
+	          <li class="nav-item"><a href="/admin_login/" class="nav-link">Logout</a></li>
+
+	        </ul>
+	      </div>
+		  </div>
+	  </nav>
+<body>
+<img src="{% static 'images/book1.jpg' %}" height="200px" width="100%" />
+<br><br>
+<table border="1" cellpadding="10" cellspacing="0" style="color:#FFFFFF" width="100%" class="m-2">
+  <thead>
+  <tr>
+      <th>Store Name</th>
+      <th>Contact</th>
+      <th>Email</th>
+      <th>City</th>
+      <th>Image</th>
+      <th>Address</th>
+<!--      <th>Books</th>-->
+
+
+  </tr>
+  </thead>
+    <tbody>
+    {% for x in merchant %}
+    <tr>
+        <td>{{x.store}}</td>
+        <td>{{x.mobile}}</td>
+        <td>{{x.email}}</td>
+        <td>{{x.city}}</td>
+        <td><img src="{{x.img.url}}" height="180px" width="180px"></td>
+        <td>{{x.address}}</td>
+<!--        <td><a href="/view_menu/{{x.id}}">Books</a> </td>-->
+<!--        <td><a href="/feedback/{{x.id}}">AddFeedback</a><br>-->
+<!--        <a href="/customer_view_feedback/{{x.id}}">ViewFeedback</a></td>-->
+
+    </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+</body>
+</html>
+{% include 'footer.html' %}

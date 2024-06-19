@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BookStore</title>
+</head>
+{% load static %}
+{% include 'header.html' %}
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+		      <a class="navbar-brand" href="{% url 'merchantprofile'%}"><span class=" "></span> Online Book Store</a>
+		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		        <span class="oi oi-menu"></span> Menu
+		      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="/merchant_details_display/" class="nav-link">Book Store</a></li>
+                <li class="nav-item "><a href="/merchant_view_feedback/" class="nav-link">Feedbacks</a></li>
+                <li class="nav-item"><a href="/book_order/" class="nav-link">Orders</a></li>
+				<li class="nav-item"><a href="/merchant_change_password/" class="nav-link">Change Password</a></li>
+                <li class="nav-item"><a href="/merchant_logout/" class="nav-link">Logout</a></li>
+
+	        </ul>
+	      </div>
+        </div>
+	  </nav>
+<img src="{% static 'images/book3.jpg' %}" height="200px" width="100%" />
+<br>
+  <section class="ftco-section contact-section">
+      <div class="container mt-5">
+        <div class="row block-9">
+			<div class="col-md-6 ftco-animate">
+            <form action="" class="contact-form" method="post" enctype="multipart/form-data">
+				<h2>AddBooks Here</h2>
+				{% csrf_token %}
+
+                <div class="form-group">
+               <label>Enter Bookstore Id:</label>
+	                <div class="form-group">
+	                  <input type="text" class="form-control" name="merchant" value="{{id}}" readonly placeholder="Hotel name">
+	                </div>
+                </div>
+
+                 <div class="form-group">
+               <label>Enter  Book title:</label>
+	                <div class="form-group">
+	                  <input type="text" class="form-control" name="bookname" placeholder=" Book title" required>
+	                </div>
+                </div>
+
+
+                <div class="form-group">
+               <label>Enter  Book Published Year:</label>
+	                <div class="form-group">
+	                  <input type="number" class="form-control" name="year" placeholder="Book Published Year" required>
+	                </div>
+                </div>
+
+                 <div class="form-group">
+               <label>Enter  Published/Author:</label>
+	                <div class="form-group">
+	                  <input type="text" class="form-control" name="author" placeholder="Published/Author" required>
+	                </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="type">BookLanguage:</label>
+                    <select name="type" id="type">
+                 <option value="telugu">Telugu</option>
+                 <option value="english">English</option>
+                 <option value="hindi">Hindi</option>
+                 <option value="Other">Other</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+               <label>Book Image:</label>
+	                <div class="form-group">
+	                  <input type="file" class="form-control" name="image" placeholder="Img" required>
+	                </div>
+                </div>
+
+
+
+                 <div class="form-group">
+               <label>Book Cost:</label>
+	                <div class="form-group">
+	                  <input type="number" class="form-control" name="cost" placeholder="Cost" required>
+	                </div>
+                </div>
+
+                <div class="form-group">
+               <label>Enter Discount:</label>
+	                <div class="form-group">
+	                  <input type="number" class="form-control" name="discount" placeholder="Discount" required>
+	                </div>
+                </div>
+                <div class="form-group">
+               <label>Enter Description:</label>
+	                <div class="form-group">
+                        <textarea name="description" id="description" class="form-group" placeholder="About book" rows="4" cols="30" required></textarea>
+	                </div>
+                </div>
+
+                <div class="form-group">
+                <label for="category">Category:</label>
+               <select name="categoty" id="category">
+                 <option value="comic">comic</option>
+                 <option value="history">history</option>
+                  <option value="horror">horror</option>
+                 <option value="classic">classic</option>
+                 <option value="fantasy">fantasy</option>
+                 <option value="sci-fi">sci-fi</option>
+                 <option value="Cook">Cook</option>
+                 <option value="Biography">Biography</option>
+                 <option value="others">others</option>
+                </select>
+                </div>
+              <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary py-3 px-5">
+              </div>
+                {{msg}}
+            </form>
+	  </div>
+		</div></div>
+    </section>
+</html>
+
+{% include 'footer.html' %}
